@@ -1,0 +1,9 @@
+/* eslint-disable */
+
+import '@testing-library/jest-dom/extend-expect'
+import {configure} from '@testing-library/react'
+import {configure as eConfigure} from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+
+configure({testIdAttribute: 'data-testid'})
+eConfigure({adapter: new Adapter()})
