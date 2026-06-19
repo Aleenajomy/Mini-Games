@@ -90,7 +90,7 @@ class EmojiGame extends React.Component {
           <Link to="/">
             <button type="button" className="BackButton">
               <BiArrowBack className="BackIcon white" />
-              <p className="backpara white">Back</p>
+              Back
             </button>
           </Link>
         </div>
@@ -163,7 +163,7 @@ class EmojiGame extends React.Component {
           <Link to="/">
             <button type="button" className="BackButton">
               <BiArrowBack className="BackIcon white" />
-              <p className="backpara white">Back</p>
+              Back
             </button>
           </Link>
           <button
@@ -232,7 +232,7 @@ class EmojiGame extends React.Component {
           <Link to="/">
             <button type="button" className="BackButton">
               <BiArrowBack className="BackIcon white" />
-              <p className="backpara white">Back</p>
+              Back
             </button>
           </Link>
         </div>

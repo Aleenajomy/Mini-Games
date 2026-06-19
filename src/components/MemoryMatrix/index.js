@@ -62,7 +62,6 @@ class MemoryMatrix extends React.Component {
 
   componentWillUnmount() {
     if (this.showTimeout) clearTimeout(this.showTimeout)
-    if (this.levelTimeout) clearTimeout(this.levelTimeout)
   }
 
   startPlaying = () => {
@@ -106,23 +105,6 @@ class MemoryMatrix extends React.Component {
 
     this.showTimeout = setTimeout(() => {
       this.setState({isShowingPattern: false, isDisabled: false})
-
-      this.levelTimeout = setTimeout(() => {
-        this.setState(prevState => {
-          const {level: currentLevel, maxLevel} = prevState
-          const completedLevels = currentLevel - 1
-          let newMax = maxLevel
-          if (completedLevels > newMax) {
-            newMax = completedLevels
-            localStorage.setItem('memoryMaxLevel', newMax)
-          }
-          return {
-            view: 'result',
-            reachedLevel: completedLevels,
-            maxLevel: newMax,
-          }
-        })
-      }, gridSize * 1000)
     }, gridSize * 1000)
   }
 
@@ -136,10 +118,6 @@ class MemoryMatrix extends React.Component {
     } = this.state
 
     if (isDisabled || clickedCells.includes(index)) return
-
-    if (this.levelTimeout) {
-      clearTimeout(this.levelTimeout)
-    }
 
     if (!highlightedCells.includes(index)) {
       const completedLevels = level - 1
@@ -200,7 +178,7 @@ class MemoryMatrix extends React.Component {
           <Link to="/">
             <button type="button" className="BackButton">
               <BiArrowBack className="BackIcon white" />
-              <p className="backpara white">Back</p>
+              Back
             </button>
           </Link>
         </div>
@@ -299,7 +277,7 @@ class MemoryMatrix extends React.Component {
             <Link to="/">
               <button type="button" className="BackButton">
                 <BiArrowBack className="BackIcon white" />
-                <p className="backpara white">Back</p>
+                Back
               </button>
             </Link>
           </div>
@@ -367,7 +345,7 @@ class MemoryMatrix extends React.Component {
             <Link to="/">
               <button type="button" className="BackButton">
                 <BiArrowBack className="BackIcon white" />
-                <p className="backpara white">Back</p>
+                Back
               </button>
             </Link>
           </div>

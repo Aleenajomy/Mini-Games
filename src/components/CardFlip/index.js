@@ -167,7 +167,7 @@ class CardFlipMemoryGame extends React.Component {
           <Link to="/">
             <button type="button" className="BackButton">
               <BiArrowBack className="BackIcon white" />
-              <p className="backpara white">Back</p>
+              Back
             </button>
           </Link>
         </div>
@@ -178,6 +178,12 @@ class CardFlipMemoryGame extends React.Component {
           alt="card flip memory game"
           className="CardFlipRulesImage"
         />
+        <h1 className="white" style={{
+          fontFamily: 'Bree Serif',
+          fontSize: '28px',
+          marginTop: '16px',
+          textAlign: 'center',
+        }}>Card-Flip Memory Game</h1>
       </div>
       <h1 className="RPSRulesName white">Rules</h1>
       <ul className="RpsUnorderedList">
@@ -192,7 +198,7 @@ class CardFlipMemoryGame extends React.Component {
         onClick={this.startPlaying}
         className="CardFlipPlayButton"
       >
-        Start Playing
+        Start playing
       </button>
     </div>
   )
@@ -216,7 +222,7 @@ class CardFlipMemoryGame extends React.Component {
             <Link to="/">
               <button type="button" className="BackButton">
                 <BiArrowBack className="BackIcon white" />
-                <p className="backpara white">Back</p>
+                Back
               </button>
             </Link>
           </div>
@@ -230,13 +236,13 @@ class CardFlipMemoryGame extends React.Component {
         </div>
 
         <h1 className="CardFlipGameHeading">Card-Flip Memory Game</h1>
-        <p className="CardFlipTimer">{this.formatTime(timer)}</p>
+        <p className="CardFlipTimer" data-testid="timer">{this.formatTime(timer)}</p>
 
         <div className="Containerone">
           <p className="CardLowestFlip">
             Lowest Flip Count - {lowestFlipCount}
           </p>
-          <p className="CardFlipTimerSmallDevices">{this.formatTime(timer)}</p>
+          <p className="CardFlipTimerSmallDevices" data-testid="timer">{this.formatTime(timer)}</p>
         </div>
         <div className="Containertwo">
           <p className="CardFlipCount">Card flip count - {flipCount}</p>
@@ -347,7 +353,7 @@ class CardFlipMemoryGame extends React.Component {
             <Link to="/">
               <button type="button" className="BackButton">
                 <BiArrowBack className="BackIcon white" />
-                <p className="backpara white">Back</p>
+                Back
               </button>
             </Link>
           </div>
