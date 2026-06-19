@@ -7,7 +7,9 @@ import './emoji.css'
 
 import emojisList from '../../data/emojisList'
 
-Modal.setAppElement('#root')
+if (document.getElementById('root')) {
+  Modal.setAppElement('#root')
+}
 
 const rulesText = [
   'User should be able to see the list of Emojis',

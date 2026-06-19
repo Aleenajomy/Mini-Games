@@ -5,7 +5,9 @@ import {CgClose} from 'react-icons/cg'
 import {BiArrowBack} from 'react-icons/bi'
 import './rps.css'
 
-Modal.setAppElement('#root')
+if (document.getElementById('root')) {
+  Modal.setAppElement('#root')
+}
 
 const choices = [
   {

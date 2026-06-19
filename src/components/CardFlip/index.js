@@ -6,7 +6,9 @@ import {BiArrowBack} from 'react-icons/bi'
 import cardsData from '../../data/cardsData'
 import './cardflip.css'
 
-Modal.setAppElement('#root')
+if (document.getElementById('root')) {
+  Modal.setAppElement('#root')
+}
 
 const rulesText = [
   'When the game is started, the users should be able to see the list of Cards that are flipped backside.',
