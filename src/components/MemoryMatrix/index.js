@@ -392,7 +392,10 @@ class MemoryMatrix extends React.Component {
             </li>
           </ul>
           <h1 className="MMResultCongratsHeading">Congratulations</h1>
-          <p className="MMResultPara">You have reached level {reachedLevel}</p>
+          <h1 className="MMResultLevelHeading">
+            You have reached level {reachedLevel}
+          </h1>
+          <p className="MMResultPara">Level {reachedLevel}</p>
           <div className="ProgressBar">
             <Line
               percent={progressPercentage}

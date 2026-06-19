@@ -361,10 +361,8 @@ class CardFlipMemoryGame extends React.Component {
                 alt="grinning face with big eyes"
                 className="CardFlipResultEmoji"
               />
-              <h1 className="CardFlipResultCongrats">Congratulations!</h1>
-              <p className="CardFlipResultPara">
-                No.of Flips - {flipCount < 10 ? `0${flipCount}` : flipCount}
-              </p>
+              <h1 className="CardFlipResultCongrats">Congratulations</h1>
+              <p className="CardFlipResultPara">No.of Flips - {flipCount}</p>
               <h1 className="CardFlipResultPara2">
                 You matched all of the cards in record time
               </h1>
@@ -377,9 +375,7 @@ class CardFlipMemoryGame extends React.Component {
                 className="CardFlipResultEmoji"
               />
               <h1 className="CardFlipResultCongrats">Better luck next time</h1>
-              <p className="CardFlipResultPara">
-                No.of Flips - {flipCount < 10 ? `0${flipCount}` : flipCount}
-              </p>
+              <p className="CardFlipResultPara">No.of Flips - {flipCount}</p>
               <h1 className="CardFlipResultPara2">
                 You did not match all of the cards in record time
               </h1>

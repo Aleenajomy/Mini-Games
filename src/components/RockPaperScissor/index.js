@@ -136,7 +136,7 @@ class RockPaperScissor extends Component {
           emojiAlt: 'lose emoji',
           face:
             'https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/frowning-face-emoji.png',
-          faceAlt: 'Frowning face',
+          faceAlt: 'Face without mouth',
         }
       case 'draw':
         return {
