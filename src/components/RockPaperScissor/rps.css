@@ -1,0 +1,471 @@
+/* rps.css */
+
+.RPSRulesMainContainer {
+  background: rgba(34, 58, 95, 1);
+  min-height: 100vh;
+  padding-bottom: 24px;
+}
+
+.white {
+  color: #ffffff;
+}
+
+.RPSRulesHeading {
+  font-family: Bree Serif;
+  font-size: 48px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.RPSRulesImage {
+  width: 266px;
+  height: 237px;
+  object-fit: contain;
+  margin: 16px 0;
+}
+
+.RPSRulesTopContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.RPSRulesName {
+  font-family: Bree Serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 48px;
+  text-align: left;
+  margin-left: 15%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.RpsUnorderedList {
+  padding: 0;
+  margin-left: 15%;
+  margin-right: 15%;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: disc;
+}
+
+.RpsListItem {
+  margin: 12px;
+  font-family: Bree Serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: left;
+  color: white;
+  width: 45%;
+}
+
+.RpsSpanElement {
+  color: yellow;
+}
+
+.RpsPlayButton {
+  background-color: white;
+  color: rgba(34, 58, 95, 1);
+  padding: 12px 24px;
+  border: 0 none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 20px 8px 20px 15%;
+  font-family: Bree Serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.BackIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.backpara {
+  font-family: Bree Serif;
+  font-size: 18px;
+  font-weight: 400;
+  margin-left: 6px;
+}
+
+.EmojiHomeBack {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80%;
+  margin: 0 auto;
+  padding-top: 24px;
+}
+
+.EmojiBackIconContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rpsMainContainer {
+  min-height: 100vh;
+  background-color: #223a5f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.rpsscoreContainer {
+  border: 2px solid #ffffff;
+  width: 80%;
+  max-width: 800px;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.rpsheading h1 {
+  font-family: Bree Serif;
+  font-size: 24px;
+  color: #ffffff;
+  margin: 0;
+  max-width: 150px;
+  line-height: 1.3;
+}
+
+.ScoreValueContainer {
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 90px;
+}
+
+.ScorePara {
+  font-family: Bree Serif;
+  font-size: 18px;
+  color: #223a5f;
+  margin: 0;
+}
+
+.Score {
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 32px;
+  color: #223a5f;
+  margin: 4px 0 0 0;
+}
+
+.PlayingView {
+  width: 60%;
+  max-width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.EachItem {
+  border: 0 none;
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.ImageElement {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  transition: transform 0.2s ease-in-out;
+}
+
+.ImageElement:hover {
+  transform: scale(1.05);
+}
+
+.ResultView {
+  width: 80%;
+  max-width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.OneItem {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Person {
+  font-family: Bree Serif;
+  font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.rpsResultEmoji {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.RPSResultContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.ResultPara {
+  font-size: 28px;
+  color: #ffffff;
+  font-family: Bree Serif;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.RPSPlayAgainButton {
+  width: 160px;
+  background-color: #ffffff;
+  color: #223a5f;
+  padding: 12px;
+  font-family: Bree Serif;
+  border: 0 none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.RPSPlayAgainButton:hover {
+  transform: translateY(-2px);
+}
+
+.closeContainer {
+  text-align: right;
+}
+
+.closeButton {
+  background-color: transparent;
+  border: 0 none;
+  cursor: pointer;
+  outline: none;
+  font-size: 24px;
+  color: #334155;
+}
+
+.rulesHeading {
+  font-family: Roboto;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  color: #334155;
+  margin-bottom: 16px;
+}
+
+.RPSRULESLIST {
+  font-family: Roboto;
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .RpsListItem {
+    width: 100%;
+    margin: 8px;
+  }
+  .RPSRulesName {
+    margin-left: 5%;
+  }
+  .RpsUnorderedList {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-left: 20px;
+  }
+  .RpsPlayButton {
+    margin-left: 5%;
+  }
+  .rpsscoreContainer {
+    width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .RPSRulesHeading {
+    font-size: 32px;
+  }
+  .RPSRulesImage {
+    width: 200px;
+    height: auto;
+  }
+  .RpsListItem {
+    font-size: 16px;
+  }
+  .rpsscoreContainer {
+    flex-direction: row;
+    height: 100px;
+    padding: 0 15px;
+  }
+  .rpsheading h1 {
+    font-size: 18px;
+  }
+  .ScoreValueContainer {
+    width: 90px;
+    height: 75px;
+  }
+  .ScorePara {
+    font-size: 14px;
+  }
+  .Score {
+    font-size: 24px;
+  }
+  .PlayingView {
+    width: 90%;
+    gap: 15px;
+  }
+  .ImageElement {
+    width: 110px;
+    height: 110px;
+  }
+  .ResultView {
+    width: 100%;
+  }
+  .rpsResultEmoji {
+    width: 110px;
+    height: 110px;
+  }
+  .Person {
+    font-size: 18px;
+  }
+}
+
+.initialRules {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.InitialRulesContainer {
+  border: 3px solid rgba(255, 255, 255, 0.19);
+  background: rgba(255, 255, 255, 0.2);
+  width: 70%;
+  border-radius: 8px;
+  display: flex;
+  padding: 30px;
+  max-width: 900px;
+}
+
+.InitialRulesFirstContainer {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.InitialEmojiRulesImage {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+}
+
+.InitialRulesSecondContainer {
+  width: 60%;
+  padding-left: 30px;
+}
+
+.InitialRulesHeading {
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.emojigameUnorderedList {
+  padding-left: 20px;
+  margin-bottom: 24px;
+}
+
+.InitialrulesListItem {
+  list-style-type: disc;
+  font-size: 16px;
+  margin-bottom: 12px;
+  font-family: Roboto;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.EmojiStartPlayingButton {
+  background-color: #ffffff;
+  color: #334155;
+  padding: 12px 24px;
+  border: 0 none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.EmojiStartPlayingButton:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 992px) {
+  .InitialRulesContainer {
+    width: 85%;
+  }
+}
+
+@media (max-width: 768px) {
+  .InitialRulesContainer {
+    width: 95%;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .InitialRulesFirstContainer {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .InitialRulesSecondContainer {
+    width: 100%;
+    padding-left: 0;
+  }
+  .InitialEmojiRulesImage {
+    max-width: 200px;
+  }
+}

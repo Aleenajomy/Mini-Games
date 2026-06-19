@@ -1,0 +1,444 @@
+/* emoji.css */
+
+.EmojiGameMainContainer {
+  background-image: linear-gradient(#9796f0, #fbc7d4);
+  min-height: 100vh;
+  padding-bottom: 24px;
+}
+
+.rContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.cardsContainer-emoji {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.EmojiBackIconContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 55%;
+  margin: 0;
+}
+
+.trigger-button-emoji {
+  background-color: transparent;
+  border: 2px solid white;
+  width: 76px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+}
+
+.EmojiHomeBack {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 10px 20px;
+}
+
+.BackIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.backpara {
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 6px;
+}
+
+.closeContainer {
+  text-align: right;
+}
+
+.closeButton {
+  background-color: transparent;
+  border: 0 none;
+  cursor: pointer;
+  outline: none;
+  font-size: 20px;
+}
+
+.rulesHeading {
+  color: #000000;
+  text-align: center;
+  margin: 0;
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+.rulesListItem {
+  list-style-type: disc;
+  margin: 8px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+}
+
+.popup-content {
+  border-radius: 8px;
+}
+
+.UnorderedList {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.eachEmojiContainer {
+  list-style-type: none;
+  width: 140px;
+  height: 140px;
+  background-color: #ffffff33;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
+  border: 2px solid #ffffff30;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+.eachEmojiContainer:hover {
+  transform: scale(1.05);
+}
+
+.emojiImg {
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  outline: none;
+}
+
+.ButtonEmoji {
+  border: 0 none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.EmojiRulesMainContainer {
+  background-image: linear-gradient(#9796f0, #fbc7d4);
+  min-height: 100vh;
+  padding-bottom: 24px;
+}
+
+.rulesBackWidth {
+  width: 100%;
+}
+
+.initialRules {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.InitialRulesContainer {
+  border: 3px solid rgba(255, 255, 255, 0.19);
+  background: rgba(255, 255, 255, 0.2);
+  width: 70%;
+  border-radius: 8px;
+  display: flex;
+  padding: 30px;
+}
+
+.InitialRulesFirstContainer {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.InitialEmojiRulesImage {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+}
+
+.InitialRulesSecondContainer {
+  width: 60%;
+  padding-left: 20px;
+}
+
+.InitialRulesHeading {
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 16px;
+  color: #334155;
+}
+
+.emojigameUnorderedList {
+  padding-left: 20px;
+  margin-bottom: 24px;
+}
+
+.InitialrulesListItem {
+  list-style-type: disc;
+  font-size: 16px;
+  margin-bottom: 12px;
+  font-family: Roboto;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: left;
+  color: #475569;
+}
+
+.EmojiStartPlayingButton {
+  background-color: #334155;
+  color: white;
+  padding: 12px 24px;
+  border: 0 none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.InitialRulesPlayContainer {
+  text-align: left;
+}
+
+/* Navbar Styles */
+.navbarContainer {
+  background-color: #ffffff33;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.insideNavBarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+}
+
+.logoImg {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+.navbarInsideContainer {
+  display: flex;
+  align-items: center;
+}
+
+.emojiLogoPara {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.EmojiNavbarPara {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 18px;
+  margin-left: 30px;
+}
+
+/* Result Styles */
+.ResultContainer {
+  width: 35%;
+  max-width: 450px;
+  padding: 24px;
+  border: 2px solid #ffffff30;
+  background-color: #ffffff33;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.resultHeading {
+  color: #ffffff;
+  font-size: 32px;
+  font-family: Roboto;
+  font-weight: bold;
+  margin: 16px 0;
+}
+
+.resultPara {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 4px 0;
+}
+
+.resultPara1 {
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.playAgainButton {
+  background-color: #ffce27;
+  color: #000000;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0 none;
+  height: 40px;
+  width: 120px;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-top: 16px;
+}
+
+.resultImg {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Modal Rules */
+.emoji-rules-heading-popup {
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  color: #334155;
+  margin-bottom: 16px;
+}
+
+.closeButton {
+  font-size: 24px;
+  color: #334155;
+}
+
+.emoji-rules-list-popup {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.emoji-rule-item-popup {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .InitialRulesContainer {
+    width: 85%;
+  }
+  .insideNavBarContainer {
+    width: 85%;
+  }
+  .EmojiHomeBack {
+    width: 90%;
+  }
+  .UnorderedList {
+    width: 85%;
+  }
+  .ResultContainer {
+    width: 55%;
+  }
+}
+
+@media (max-width: 768px) {
+  .InitialRulesContainer {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .InitialRulesFirstContainer {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .InitialRulesSecondContainer {
+    width: 100%;
+    padding-left: 0;
+  }
+  .InitialEmojiRulesImage {
+    max-width: 200px;
+  }
+  .ResultContainer {
+    width: 80%;
+  }
+  .eachEmojiContainer {
+    width: 100px;
+    height: 100px;
+    margin: 6px;
+  }
+  .emojiImg {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+@media (max-width: 576px) {
+  .insideNavBarContainer {
+    width: 95%;
+  }
+  .insideNavBarContainer p {
+    font-size: 14px;
+  }
+  .EmojiNavbarPara {
+    margin-left: 15px;
+  }
+  .eachEmojiContainer {
+    width: 80px;
+    height: 80px;
+    margin: 4px;
+  }
+  .emojiImg {
+    width: 40px;
+    height: 40px;
+  }
+  .ResultContainer {
+    width: 90%;
+  }
+}
