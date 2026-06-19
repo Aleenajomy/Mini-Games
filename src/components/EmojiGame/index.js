@@ -103,6 +103,17 @@ class EmojiGame extends React.Component {
               alt="emoji game"
               className="InitialEmojiRulesImage"
             />
+            <h1
+              className="white"
+              style={{
+                fontFamily: 'Bree Serif',
+                fontSize: '28px',
+                marginTop: '16px',
+                textAlign: 'center',
+              }}
+            >
+              Emoji Game
+            </h1>
           </div>
           <div className="InitialRulesSecondContainer">
             <h1 className="InitialRulesHeading">Rules</h1>
@@ -140,7 +151,7 @@ class EmojiGame extends React.Component {
                 alt="emoji logo"
                 className="logoImg"
               />
-              <p className="emojiLogoPara">Emoji Game</p>
+              <h1 className="emojiLogoPara">Emoji Game</h1>
             </div>
             <div className="navbarInsideContainer">
               <p className="EmojiNavbarPara">Score: {score}</p>
@@ -174,7 +185,7 @@ class EmojiGame extends React.Component {
                 >
                   <img
                     src={emoji.emojiUrl}
-                    alt={emoji.emojiName}
+                    alt={emoji.emojiName.toLowerCase()}
                     className="emojiImg"
                   />
                 </button>

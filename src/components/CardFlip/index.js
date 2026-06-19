@@ -234,31 +234,21 @@ class CardFlipMemoryGame extends React.Component {
 
         <div className="Containerone">
           <p className="CardLowestFlip">
-            Lowest Flip Count-
-            {lowestFlipCount < 10 ? `0${lowestFlipCount}` : lowestFlipCount}
+            Lowest Flip Count - {lowestFlipCount}
           </p>
           <p className="CardFlipTimerSmallDevices">{this.formatTime(timer)}</p>
         </div>
         <div className="Containertwo">
-          <p className="CardFlipCount">
-            Card flip count - {flipCount < 10 ? `0${flipCount}` : flipCount}
-          </p>
-          <p className="CardFlipScore">
-            Score - {score < 10 ? `0${score}` : score}
-          </p>
+          <p className="CardFlipCount">Card flip count - {flipCount}</p>
+          <p className="CardFlipScore">Score - {score}</p>
         </div>
 
         <div className="CardFlipScoreContainer">
-          <p className="CardFlipCount">
-            Card flip count-{flipCount < 10 ? `0${flipCount}` : flipCount}
-          </p>
+          <p className="CardFlipCount">Card flip count - {flipCount}</p>
           <p className="CardLowestFlip">
-            Lowest Flip Count-
-            {lowestFlipCount < 10 ? `0${lowestFlipCount}` : lowestFlipCount}
+            Lowest Flip Count - {lowestFlipCount}
           </p>
-          <p className="CardFlipScore">
-            Score-{score < 10 ? `0${score}` : score}
-          </p>
+          <p className="CardFlipScore">Score - {score}</p>
         </div>
 
         <ul className="CardFlipUnordered">
@@ -284,12 +274,9 @@ class CardFlipMemoryGame extends React.Component {
             }
 
             return (
-              <li
-                key={card.id}
-                className={`CardsListItem ${cardClass}`}
-                data-testid={card.name}
-              >
+              <li key={card.id} className={`CardsListItem ${cardClass}`}>
                 <button
+                  data-testid={card.name}
                   type="button"
                   onClick={() => this.handleCardClick(card.id)}
                   className="ButtonCardFlip"

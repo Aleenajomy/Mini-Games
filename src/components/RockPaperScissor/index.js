@@ -52,6 +52,7 @@ class RockPaperScissor extends Component {
     opponentChoice: null,
     result: null,
     isModalOpen: false,
+    isPlayAgain: false,
   }
 
   getResult = (user, opponent) => {
@@ -68,7 +69,7 @@ class RockPaperScissor extends Component {
 
   startPlaying = () => {
     window.scrollTo(0, 0)
-    this.setState({view: 'playing', score: 0})
+    this.setState({view: 'playing', score: 0, isPlayAgain: false})
   }
 
   handleChoice = userChoice => {
@@ -94,6 +95,7 @@ class RockPaperScissor extends Component {
       userChoice: null,
       opponentChoice: null,
       result: null,
+      isPlayAgain: true,
     })
   }
 
@@ -164,7 +166,7 @@ class RockPaperScissor extends Component {
           <Link to="/">
             <button type="button" className="BackButton">
               <BiArrowBack className="BackIcon white" />
-              <p className="backpara white">Back</p>
+              Back
             </button>
           </Link>
         </div>
@@ -177,17 +179,7 @@ class RockPaperScissor extends Component {
               alt="rock paper scissor"
               className="InitialEmojiRulesImage"
             />
-            <h1
-              className="white"
-              style={{
-                fontFamily: 'Bree Serif',
-                fontSize: '28px',
-                marginTop: '16px',
-                textAlign: 'center',
-              }}
-            >
-              Rock Paper Scissor
-            </h1>
+            <h1 className="white">Rock Paper Scissor</h1>
           </div>
           <div className="InitialRulesSecondContainer">
             <h1 className="InitialRulesHeading white">Rules</h1>
@@ -214,7 +206,7 @@ class RockPaperScissor extends Component {
   )
 
   renderPlayingView = () => {
-    const {score, isModalOpen} = this.state
+    const {score, isModalOpen, isPlayAgain} = this.state
     return (
       <div className="rpsMainContainer">
         <div className="EmojiHomeBack">
@@ -222,7 +214,7 @@ class RockPaperScissor extends Component {
             <Link to="/">
               <button type="button" className="BackButton">
                 <BiArrowBack className="BackIcon white" />
-                <p className="backpara white">Back</p>
+                Back
               </button>
             </Link>
           </div>
@@ -244,6 +236,18 @@ class RockPaperScissor extends Component {
             <p className="Score">{score}</p>
           </div>
         </div>
+
+        <h1
+          className="PlayingViewHeading"
+          style={{
+            color: '#ffffff',
+            fontFamily: 'Bree Serif',
+            fontSize: '28px',
+            margin: '20px 0',
+          }}
+        >
+          {isPlayAgain ? 'Lets pick' : 'Let’s pick'}
+        </h1>
 
         <div className="PlayingView">
           <button
@@ -321,7 +325,7 @@ class RockPaperScissor extends Component {
             <Link to="/">
               <button type="button" className="BackButton">
                 <BiArrowBack className="BackIcon white" />
-                <p className="backpara white">Back</p>
+                Back
               </button>
             </Link>
           </div>
