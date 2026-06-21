@@ -31,6 +31,7 @@ const choices = [
 ]
 
 const rulesText = [
+  'The game result should be based on user and user opponent choices',
   'When the user choice is rock and his opponent choice is rock then the result will be IT IS DRAW',
   'When the user choice is paper and his opponent choice is rock then the result will be YOU WON',
   'When the user choice is a scissor and his opponent choice is rock then the result will be YOU LOSE',
@@ -39,10 +40,9 @@ const rulesText = [
   'When the user choice is rock and his opponent choice is scissors then the result will be YOU WON',
   'When the user choice is paper and his opponent choice is scissors then the result will be YOU LOSE',
   'When the user choice is scissors and his opponent choice is scissors then the result will be IT IS DRAW',
-  'When the user choice is rock and his opponent choice is paper then the result will be YOU LOSE',
   'When the result is YOU WON, then the count of the score should be incremented by 1',
   'When the result is IT IS DRAW, then the count of the score should be the same',
-  'When the result is YOU LOSE, then the count of the score should be decremented by 1',
+  'When the result is YOU LOSE, then the count of the score should be decremented by 1.',
 ]
 
 class RockPaperScissor extends Component {
