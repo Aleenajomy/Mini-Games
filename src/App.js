@@ -12,10 +12,10 @@ function App() {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route path="/emoji-game" component={EmojiGame} />
-      <Route path="/rock-paper-scissor" component={RockPaperScissor} />
-      <Route path="/memory-matrix" component={MemoryMatrix} />
-      <Route path="/card-flip-memory-game" component={CardFlipMemoryGame} />
+      <Route exact path="/emoji-game" component={EmojiGame} />
+      <Route exact path="/rock-paper-scissor" component={RockPaperScissor} />
+      <Route exact path="/memory-matrix" component={MemoryMatrix} />
+      <Route exact path="/card-flip-memory-game" component={CardFlipMemoryGame} />
     </Switch>
   )
 }

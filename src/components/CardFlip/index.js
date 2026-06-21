@@ -11,8 +11,8 @@ if (document.getElementById('root')) {
 }
 
 const rulesText = [
-  'When the game is started, the users should be able to see the list of Cards that are flipped backside.',
-  'Users should be able to flip a card by clicking on it.',
+  'When a user starts the game, the user should be able to see the list of Cards that are flipped backside.',
+  'When a user starts the game, the user should be able to flip a card by clicking on it.',
   'When the user clicks on a card, the card will be flipped.',
   'Users can flip only two cards at a time.',
   'When the user flips the second card, if both cards match, they remain flipped.',
@@ -239,17 +239,6 @@ class CardFlipMemoryGame extends React.Component {
 
         <h1 className="CardFlipGameHeading">Card-Flip Memory Game</h1>
         <p className="CardFlipTimer" data-testid="timer">{this.formatTime(timer)}</p>
-
-        <div className="Containerone">
-          <p className="CardLowestFlip">
-            Lowest Flip Count - {lowestFlipCount}
-          </p>
-          <p className="CardFlipTimerSmallDevices" data-testid="timer">{this.formatTime(timer)}</p>
-        </div>
-        <div className="Containertwo">
-          <p className="CardFlipCount">Card flip count - {flipCount}</p>
-          <p className="CardFlipScore">Score - {score}</p>
-        </div>
 
         <div className="CardFlipScoreContainer">
           <p className="CardFlipCount">Card flip count - {flipCount}</p>

@@ -527,13 +527,8 @@
     font-size: 20px;
   }
   .ProgressBar {
-    display: none;
-  }
-  .ProgressBarSmallDevices {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px;
+    width: 80%;
   }
 
   /* Mobile cell shrinking to fit smaller screens */

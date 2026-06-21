@@ -30,16 +30,12 @@ const emojiImages = [
 
 const rulesText = [
   'In each level of the Game, Users should be able to see the Grid with N*N cells',
-  'The Grid will have N*N cells, with N highlighted cells',
-  'The highlighted cells are based on the N value and will be N for each level',
-  'In the level 1, Grid will be 3X3, In level 2, it will be 4X4, and so on',
-  'Users should remember the positions of highlighted cells',
-  'After N seconds, the highlighted buttons will change to the default state',
-  'Users should now click on the cells that were highlighted before',
-  'If the user clicks on the wrong cell, then the game will be over',
-  'If the user clicks on all the correct cells, then the user will be moved to the next level',
-  'The game will be completed once the user finishes all the levels',
-  'The maximum level of the game is 15',
+  'The highlighted cells will remain N seconds',
+  'After N seconds, the cells will be hidden',
+  'The user has to click on the highlighted cells in the grid',
+  'If the user clicks on the correct cells, then the user level will be incremented',
+  'If the user clicks on the wrong cells, the game will be over',
+  'In each level, Grid size will be (N+2) * (N+2)',
 ]
 
 const MAX_LEVEL = 15
@@ -62,6 +58,7 @@ class MemoryMatrix extends React.Component {
 
   componentWillUnmount() {
     if (this.showTimeout) clearTimeout(this.showTimeout)
+    if (this.levelTimeout) clearTimeout(this.levelTimeout)
   }
 
   startPlaying = () => {
@@ -105,6 +102,23 @@ class MemoryMatrix extends React.Component {
 
     this.showTimeout = setTimeout(() => {
       this.setState({isShowingPattern: false, isDisabled: false})
+
+      this.levelTimeout = setTimeout(() => {
+        this.setState(prevState => {
+          const {level: currentLevel, maxLevel} = prevState
+          const completedLevels = currentLevel - 1
+          let newMax = maxLevel
+          if (completedLevels > newMax) {
+            newMax = completedLevels
+            localStorage.setItem('memoryMaxLevel', newMax)
+          }
+          return {
+            view: 'result',
+            reachedLevel: completedLevels,
+            maxLevel: newMax,
+          }
+        })
+      }, gridSize * 1000)
     }, gridSize * 1000)
   }
 
@@ -120,6 +134,7 @@ class MemoryMatrix extends React.Component {
     if (isDisabled || clickedCells.includes(index)) return
 
     if (!highlightedCells.includes(index)) {
+      if (this.levelTimeout) clearTimeout(this.levelTimeout)
       const completedLevels = level - 1
       let newMax = maxLevel
       if (completedLevels > newMax) {
@@ -137,6 +152,7 @@ class MemoryMatrix extends React.Component {
     const newClickedCells = [...clickedCells, index]
 
     if (newClickedCells.length === highlightedCells.length) {
+      if (this.levelTimeout) clearTimeout(this.levelTimeout)
       if (level >= MAX_LEVEL) {
         let newMax = maxLevel
         if (MAX_LEVEL > newMax) {
@@ -375,21 +391,27 @@ class MemoryMatrix extends React.Component {
           </h1>
           <p className="MMResultPara">Level {reachedLevel}</p>
           <div className="ProgressBar">
-            <Line
-              percent={progressPercentage}
-              strokeWidth={4}
-              strokeColor="#467aff"
-              trailColor="#e2e8f0"
-            />
-            <p className="MMResultLevel">{progressPercentage}%</p>
-          </div>
-          <div className="ProgressBarSmallDevices" style={{width: '75%'}}>
-            <Line
-              percent={progressPercentage}
-              strokeWidth={6}
-              strokeColor="#467aff"
-              trailColor="#e2e8f0"
-            />
+            <svg className="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none" style={{width: '100%'}}>
+              <path
+                className="rc-progress-line-trail"
+                d="M 0.5,0.5 L 99.5,0.5"
+                stroke="#e2e8f0"
+                strokeWidth="1"
+                fillOpacity="0"
+              />
+              <path
+                className="rc-progress-line-path"
+                d="M 0.5,0.5 L 99.5,0.5"
+                stroke="#467aff"
+                strokeWidth="1"
+                fillOpacity="0"
+                style={{
+                  strokeDasharray: '100px, 100px',
+                  strokeDashoffset: `${100 - progressPercentage}px`,
+                  transition: 'stroke-dashoffset 0.3s ease 0s, stroke 0.3s ease 0s, stroke-width 0.06s ease 0s',
+                }}
+              />
+            </svg>
             <p className="MMResultLevel">{progressPercentage}%</p>
           </div>
           <button

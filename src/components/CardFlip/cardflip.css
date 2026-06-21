@@ -335,10 +335,14 @@
     min-height: 100vh;
   }
   .CardFlipScoreContainer {
-    display: none;
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    align-items: center;
   }
   .CardFlipTimer {
-    display: none;
+    display: block;
+    font-size: 24px;
   }
   .CardFlipUnordered {
     width: 95%;
@@ -362,29 +366,7 @@
   .CardLowestFlip,
   .CardFlipCount,
   .CardFlipScore {
-    font-size: 16px;
-  }
-
-  .Containerone {
-    display: flex;
-    width: 95%;
-    align-items: center;
-    justify-content: space-between;
-    margin: 10px 0 5px 0;
-  }
-  .Containertwo {
-    display: flex;
-    width: 95%;
-    align-items: center;
-    justify-content: space-between;
-    margin: 5px 0 10px 0;
-  }
-  .CardFlipTimerSmallDevices {
-    display: block;
-    font-size: 24px;
-    color: #ffffff;
-    font-family: Bree Serif;
-    margin: 0;
+    font-size: 14px;
   }
   .CardFlipResultCongrats {
     font-size: 28px;

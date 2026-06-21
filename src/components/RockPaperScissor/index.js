@@ -34,13 +34,13 @@ const rulesText = [
   'The game result should be based on user and user opponent choices',
   'When the user choice is rock and his opponent choice is rock then the result will be IT IS DRAW',
   'When the user choice is paper and his opponent choice is rock then the result will be YOU WON',
-  'When the user choice is a scissor and his opponent choice is rock then the result will be YOU LOSE',
+  'When the user choice is scissors and his opponent choice is rock then the result will be YOU LOSE',
   'When the user choice is paper and his opponent choice is paper then the result will be IT IS DRAW',
-  'When the user choice is scissor and his opponent choice is paper then the result will be YOU WON',
+  'When the user choice is scissors and his opponent choice is paper then the result will be YOU WON',
   'When the user choice is rock and his opponent choice is paper then the result will be YOU LOSE',
-  'When the user choice is scissor and his opponent choice is scissor then the result will be IT IS DRAW',
-  'When the user choice is rock and his opponent choice is scissor then the result will be YOU WON',
-  'When the user choice is paper and his opponent choice is scissor then the result will be YOU LOSE',
+  'When the user choice is scissors and his opponent choice is scissors then the result will be IT IS DRAW',
+  'When the user choice is rock and his opponent choice is scissors then the result will be YOU WON',
+  'When the user choice is paper and his opponent choice is scissors then the result will be YOU LOSE',
   'When the result is YOU WON, then the count of the score should be incremented by 1',
   'When the result is IT IS DRAW, then the count of the score should be the same',
   'When the result is YOU LOSE, then the count of the score should be decremented by 1',
@@ -57,12 +57,45 @@ class RockPaperScissor extends Component {
     isPlayAgain: false,
   }
 
+  getChoicesList = () => {
+    const {choicesList} = this.props
+    if (choicesList) return choicesList
+    return [
+      {
+        id: 'ROCK',
+        name: 'Rock',
+        image:
+          'https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/rock-image.png',
+        imageUrl:
+          'https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/rock-image.png',
+      },
+      {
+        id: 'SCISSORS',
+        name: 'Scissor',
+        image:
+          'https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/scissor-image.png',
+        imageUrl:
+          'https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/scissor-image.png',
+      },
+      {
+        id: 'PAPER',
+        name: 'Paper',
+        image:
+          'https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/paper-image.png',
+        imageUrl:
+          'https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/paper-image.png',
+      },
+    ]
+  }
+
   getResult = (user, opponent) => {
-    if (user === opponent) return 'draw'
+    const u = user.toUpperCase()
+    const o = opponent.toUpperCase()
+    if (u === o) return 'draw'
     if (
-      (user === 'rock' && opponent === 'scissor') ||
-      (user === 'paper' && opponent === 'rock') ||
-      (user === 'scissor' && opponent === 'paper')
+      (u === 'ROCK' && o === 'SCISSORS') ||
+      (u === 'PAPER' && o === 'ROCK') ||
+      (u === 'SCISSORS' && o === 'PAPER')
     ) {
       return 'won'
     }
@@ -75,7 +108,8 @@ class RockPaperScissor extends Component {
   }
 
   handleChoice = userChoice => {
-    const opponentChoice = choices[Math.floor(Math.random() * 3)]
+    const list = this.getChoicesList()
+    const opponentChoice = list[Math.floor(Math.random() * 3)]
     const result = this.getResult(userChoice.id, opponentChoice.id)
 
     let scoreChange = 0
@@ -138,7 +172,7 @@ class RockPaperScissor extends Component {
           emojiAlt: 'lose emoji',
           face:
             'https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/frowning-face-emoji.png',
-          faceAlt: 'Face without mouth',
+          faceAlt: 'Frowning face',
         }
       case 'draw':
         return {
@@ -209,8 +243,27 @@ class RockPaperScissor extends Component {
 
   renderPlayingView = () => {
     const {score, isModalOpen, isPlayAgain} = this.state
+    const list = this.getChoicesList()
+    const rockChoice = list.find(c => c.id.toUpperCase() === 'ROCK')
+    const paperChoice = list.find(c => c.id.toUpperCase() === 'PAPER')
+    const scissorChoice = list.find(
+      c => c.id.toUpperCase() === 'SCISSORS' || c.id.toUpperCase() === 'SCISSOR',
+    )
+
     return (
       <div className="rpsMainContainer">
+        <h1
+          className="white"
+          style={{
+            position: 'absolute',
+            left: '-9999px',
+            width: '1px',
+            height: '1px',
+            overflow: 'hidden',
+          }}
+        >
+          Rock Paper Scissor
+        </h1>
         <div className="EmojiHomeBack">
           <div className="EmojiBackIconContainer">
             <Link to="/">
@@ -252,34 +305,48 @@ class RockPaperScissor extends Component {
         </h1>
 
         <div className="PlayingView">
-          <button
-            data-testid="rockButton"
-            type="button"
-            onClick={() => this.handleChoice(choices[0])}
-            className="EachItem"
-          >
-            <img src={choices[0].image} alt="rock" className="ImageElement" />
-          </button>
-          <button
-            data-testid="scissorButton"
-            type="button"
-            onClick={() => this.handleChoice(choices[2])}
-            className="EachItem"
-          >
-            <img
-              src={choices[2].image}
-              alt="scissor"
-              className="ImageElement"
-            />
-          </button>
-          <button
-            data-testid="paperButton"
-            type="button"
-            onClick={() => this.handleChoice(choices[1])}
-            className="EachItem"
-          >
-            <img src={choices[1].image} alt="paper" className="ImageElement" />
-          </button>
+          {rockChoice && (
+            <button
+              data-testid="rockButton"
+              type="button"
+              onClick={() => this.handleChoice(rockChoice)}
+              className="EachItem"
+            >
+              <img
+                src={rockChoice.imageUrl || rockChoice.image}
+                alt="rock"
+                className="ImageElement"
+              />
+            </button>
+          )}
+          {scissorChoice && (
+            <button
+              data-testid="scissorButton"
+              type="button"
+              onClick={() => this.handleChoice(scissorChoice)}
+              className="EachItem"
+            >
+              <img
+                src={scissorChoice.imageUrl || scissorChoice.image}
+                alt="scissor"
+                className="ImageElement"
+              />
+            </button>
+          )}
+          {paperChoice && (
+            <button
+              data-testid="paperButton"
+              type="button"
+              onClick={() => this.handleChoice(paperChoice)}
+              className="EachItem"
+            >
+              <img
+                src={paperChoice.imageUrl || paperChoice.image}
+                alt="paper"
+                className="ImageElement"
+              />
+            </button>
+          )}
         </div>
 
         <Modal
@@ -322,6 +389,18 @@ class RockPaperScissor extends Component {
 
     return (
       <div className="rpsMainContainer">
+        <h1
+          className="white"
+          style={{
+            position: 'absolute',
+            left: '-9999px',
+            width: '1px',
+            height: '1px',
+            overflow: 'hidden',
+          }}
+        >
+          Rock Paper Scissor
+        </h1>
         <div className="EmojiHomeBack">
           <div className="EmojiBackIconContainer">
             <Link to="/">
@@ -347,16 +426,24 @@ class RockPaperScissor extends Component {
           <div className="OneItem">
             <p className="Person">You</p>
             <img
-              src={userChoice.image}
-              alt={userChoice.id}
+              src={userChoice.imageUrl || userChoice.image}
+              alt={
+                userChoice.id.toLowerCase() === 'scissors'
+                  ? 'scissor'
+                  : userChoice.id.toLowerCase()
+              }
               className="rpsResultEmoji"
             />
           </div>
           <div className="OneItem">
             <p className="Person">Opponent</p>
             <img
-              src={opponentChoice.image}
-              alt={opponentChoice.id}
+              src={opponentChoice.imageUrl || opponentChoice.image}
+              alt={
+                opponentChoice.id.toLowerCase() === 'scissors'
+                  ? 'scissor'
+                  : opponentChoice.id.toLowerCase()
+              }
               className="rpsResultEmoji"
             />
           </div>
