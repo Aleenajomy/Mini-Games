@@ -176,16 +176,7 @@ class MemoryMatrix extends React.Component {
 
   closeModal = () => this.setState({isModalOpen: false})
 
-  getEmojiIndex = level => {
-    if (level === 0) return 0
-    if (level <= 2) return 1
-    if (level <= 4) return 2
-    if (level <= 6) return 3
-    if (level <= 8) return 4
-    if (level <= 10) return 5
-    if (level <= 12) return 6
-    return 7
-  }
+  getEmojiIndex = level => Math.min(level, 7)
 
   renderRulesView = () => (
     <div className="MMRulesMaincontainer">
