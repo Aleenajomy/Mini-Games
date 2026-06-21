@@ -57,6 +57,10 @@ class MemoryMatrix extends React.Component {
   }
 
   componentWillUnmount() {
+    this.clearTimeouts()
+  }
+
+  clearTimeouts = () => {
     if (this.showTimeout) clearTimeout(this.showTimeout)
     if (this.levelTimeout) clearTimeout(this.levelTimeout)
   }
@@ -79,6 +83,7 @@ class MemoryMatrix extends React.Component {
   }
 
   startLevel = () => {
+    this.clearTimeouts()
     const {level} = this.state
     const gridSize = level + 2
     const totalCells = gridSize * gridSize
@@ -119,16 +124,22 @@ class MemoryMatrix extends React.Component {
           }
         })
       }, gridSize * 1000)
-    }, gridSize * 1000)
+    }, 3000)
   }
 
   handleCellClick = index => {
-    const {highlightedCells, clickedCells, level, maxLevel} = this.state
+    const {
+      highlightedCells,
+      clickedCells,
+      level,
+      maxLevel,
+      isDisabled,
+    } = this.state
 
-    if (clickedCells.includes(index)) return
+    if (isDisabled || clickedCells.includes(index)) return
 
     if (!highlightedCells.includes(index)) {
-      if (this.levelTimeout) clearTimeout(this.levelTimeout)
+      this.clearTimeouts()
       const completedLevels = level - 1
       let newMax = maxLevel
       if (completedLevels > newMax) {
@@ -146,7 +157,7 @@ class MemoryMatrix extends React.Component {
     const newClickedCells = [...clickedCells, index]
 
     if (newClickedCells.length === highlightedCells.length) {
-      if (this.levelTimeout) clearTimeout(this.levelTimeout)
+      this.clearTimeouts()
       if (level >= MAX_LEVEL) {
         let newMax = maxLevel
         if (MAX_LEVEL > newMax) {
@@ -267,11 +278,10 @@ class MemoryMatrix extends React.Component {
             data-testid={isHighlightedCell ? 'highlighted' : 'notHighlighted'}
             onClick={() => this.handleCellClick(i)}
             className="MMBoxButton"
-            aria-disabled={isDisabled}
+            disabled={isDisabled}
             style={{
               width: '100%',
               height: '100%',
-              pointerEvents: isShowingPattern ? 'none' : 'auto',
             }}
             aria-label={`cell ${i}`}
           />
