@@ -136,7 +136,7 @@ class MemoryMatrix extends React.Component {
       isDisabled,
     } = this.state
 
-    if (isDisabled || clickedCells.includes(index)) return
+    if (clickedCells.includes(index)) return
 
     if (!highlightedCells.includes(index)) {
       this.clearTimeouts()
@@ -153,6 +153,8 @@ class MemoryMatrix extends React.Component {
       })
       return
     }
+
+    if (isDisabled) return
 
     const newClickedCells = [...clickedCells, index]
 
@@ -278,10 +280,11 @@ class MemoryMatrix extends React.Component {
             data-testid={isHighlightedCell ? 'highlighted' : 'notHighlighted'}
             onClick={() => this.handleCellClick(i)}
             className="MMBoxButton"
-            disabled={isDisabled}
+            aria-disabled={isDisabled}
             style={{
               width: '100%',
               height: '100%',
+              pointerEvents: isShowingPattern ? 'none' : 'auto',
             }}
             aria-label={`cell ${i}`}
           />
