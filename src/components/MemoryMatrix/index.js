@@ -29,13 +29,13 @@ const emojiImages = [
 ]
 
 const rulesText = [
-  'In each level of the Game, Users should be able to see the Grid with N*N cells',
-  'The highlighted cells will remain N seconds',
-  'After N seconds, the cells will be hidden',
-  'The user has to click on the highlighted cells in the grid',
-  'If the user clicks on the correct cells, then the user level will be incremented',
-  'If the user clicks on the wrong cells, the game will be over',
-  'In each level, Grid size will be (N+2) * (N+2)',
+  'In each level of the Game, Users should be able to see the Grid with (N X N) size starting from 3 and the grid will highlight N cells in Blue, the N highlighted cells will be picked randomly.',
+  'At N seconds, the user can click on any cell. Clicking on a cell that was highlighted before it will turn blue. Clicking on the other cells that were not highlighted before then will turn to red.',
+  'The highlighted cells will remain N seconds for the user to memorize the cells. At this point, the user should not be able to perform any action.',
+  'The user should be promoted to the next level if they guess all N cells correctly in one attempt.',
+  'After N seconds, the grid will clear the N highlighted cells.',
+  'The user should be taken to the results page if the user clicks on the wrong cell.',
+  'If the user completed all the levels, then the user should be taken to the results page.',
 ]
 
 const MAX_LEVEL = 15
@@ -391,27 +391,12 @@ class MemoryMatrix extends React.Component {
           </h1>
           <p className="MMResultPara">Level {reachedLevel}</p>
           <div className="ProgressBar">
-            <svg className="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none" style={{width: '100%'}}>
-              <path
-                className="rc-progress-line-trail"
-                d="M 0.5,0.5 L 99.5,0.5"
-                stroke="#e2e8f0"
-                strokeWidth="1"
-                fillOpacity="0"
-              />
-              <path
-                className="rc-progress-line-path"
-                d="M 0.5,0.5 L 99.5,0.5"
-                stroke="#467aff"
-                strokeWidth="1"
-                fillOpacity="0"
-                style={{
-                  strokeDasharray: '100px, 100px',
-                  strokeDashoffset: `${100 - progressPercentage}px`,
-                  transition: 'stroke-dashoffset 0.3s ease 0s, stroke 0.3s ease 0s, stroke-width 0.06s ease 0s',
-                }}
-              />
-            </svg>
+            <Line
+              percent={progressPercentage}
+              strokeWidth={4}
+              strokeColor="#467aff"
+              trailColor="#e2e8f0"
+            />
             <p className="MMResultLevel">{progressPercentage}%</p>
           </div>
           <button

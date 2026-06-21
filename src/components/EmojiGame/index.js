@@ -187,7 +187,7 @@ class EmojiGame extends React.Component {
                 >
                   <img
                     src={emoji.emojiUrl}
-                    alt={emoji.emojiName.toLowerCase()}
+                    alt={emoji.emojiName}
                     className="emojiImg"
                   />
                 </button>

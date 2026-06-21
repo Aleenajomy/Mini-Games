@@ -11,14 +11,13 @@ if (document.getElementById('root')) {
 }
 
 const rulesText = [
-  'When a user starts the game, the user should be able to see the list of Cards that are flipped backside.',
-  'When a user starts the game, the user should be able to flip a card by clicking on it.',
-  'When the user clicks on a card, the card will be flipped.',
-  'Users can flip only two cards at a time.',
-  'When the user flips the second card, if both cards match, they remain flipped.',
-  'If the two flipped cards do not match, they will be flipped back after a short delay.',
-  'The user wins the game when all the cards have been matched.',
-  'The user should complete the game within the given time.',
+  'When the game is started, the users should be able to see the list of Cards that are shuffled and turned face down.',
+  'Users should be able to compare only two cards at a time.',
+  'When a user starts the game, the user should be able to see the Timer running.',
+  'When the user is not able to find all the cards before the timer ends then the game should end and redirect to the Time Up Page.',
+  'The Timer starts from 2 Minutes.',
+  'If the two cards have the same image, they remain face up. If not, they should be flipped face down again after a short 2 seconds.',
+  'If the user finds all the matching cards before the timer ends, then the user should be redirected to the results page.',
 ]
 
 class CardFlipMemoryGame extends React.Component {
