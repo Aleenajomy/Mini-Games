@@ -753,7 +753,3 @@
     max-width: 200px;
   }
 }
-
-.disabled-state {
-  pointer-events: none;
-}

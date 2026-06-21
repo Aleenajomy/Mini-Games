@@ -136,7 +136,11 @@ class MemoryMatrix extends React.Component {
       isDisabled,
     } = this.state
 
-    if (clickedCells.includes(index)) return
+    if (isDisabled || clickedCells.includes(index)) return
+
+    if (this.levelTimeout) {
+      clearTimeout(this.levelTimeout)
+    }
 
     if (!highlightedCells.includes(index)) {
       this.clearTimeouts()
@@ -152,12 +156,6 @@ class MemoryMatrix extends React.Component {
         maxLevel: newMax,
       })
       return
-    }
-
-    if (isDisabled) return
-
-    if (this.levelTimeout) {
-      clearTimeout(this.levelTimeout)
     }
 
     const newClickedCells = [...clickedCells, index]
@@ -283,10 +281,8 @@ class MemoryMatrix extends React.Component {
             type="button"
             data-testid={isHighlightedCell ? 'highlighted' : 'notHighlighted'}
             onClick={() => this.handleCellClick(i)}
-            className={`MMBoxButton ${
-              isShowingPattern ? 'disabled-state' : ''
-            }`}
-            aria-disabled={isDisabled}
+            className="MMBoxButton"
+            disabled={isDisabled}
             style={{
               width: '100%',
               height: '100%',
@@ -369,6 +365,10 @@ class MemoryMatrix extends React.Component {
     const {reachedLevel} = this.state
     const emojiIndex = this.getEmojiIndex(reachedLevel)
     const progressPercentage = Math.round((reachedLevel / MAX_LEVEL) * 100)
+    const reachedLevelText = `You have reached level ${reachedLevel}`
+    const levelText = `Level ${
+      reachedLevel === MAX_LEVEL ? reachedLevel : reachedLevel + 1
+    }`
 
     return (
       <div className="MMGameResultContainer">
@@ -402,12 +402,8 @@ class MemoryMatrix extends React.Component {
             </li>
           </ul>
           <h1 className="MMResultCongratsHeading">Congratulations</h1>
-          <h1 className="MMResultLevelHeading">
-            You have reached level {reachedLevel}
-          </h1>
-          <p className="MMResultPara">
-            Level {reachedLevel === MAX_LEVEL ? reachedLevel : reachedLevel + 1}
-          </p>
+          <h1 className="MMResultLevelHeading">{reachedLevelText}</h1>
+          <p className="MMResultPara">{levelText}</p>
           <div className="ProgressBar">
             <Line
               percent={progressPercentage}
