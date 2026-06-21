@@ -124,7 +124,7 @@ class MemoryMatrix extends React.Component {
           }
         })
       }, gridSize * 1000)
-    }, 3000)
+    }, gridSize * 1000)
   }
 
   handleCellClick = index => {
@@ -155,6 +155,10 @@ class MemoryMatrix extends React.Component {
     }
 
     if (isDisabled) return
+
+    if (this.levelTimeout) {
+      clearTimeout(this.levelTimeout)
+    }
 
     const newClickedCells = [...clickedCells, index]
 
@@ -279,12 +283,13 @@ class MemoryMatrix extends React.Component {
             type="button"
             data-testid={isHighlightedCell ? 'highlighted' : 'notHighlighted'}
             onClick={() => this.handleCellClick(i)}
-            className="MMBoxButton"
+            className={`MMBoxButton ${
+              isShowingPattern ? 'disabled-state' : ''
+            }`}
             aria-disabled={isDisabled}
             style={{
               width: '100%',
               height: '100%',
-              pointerEvents: isShowingPattern ? 'none' : 'auto',
             }}
             aria-label={`cell ${i}`}
           />
@@ -400,7 +405,9 @@ class MemoryMatrix extends React.Component {
           <h1 className="MMResultLevelHeading">
             You have reached level {reachedLevel}
           </h1>
-          <p className="MMResultPara">Level {reachedLevel}</p>
+          <p className="MMResultPara">
+            Level {reachedLevel === MAX_LEVEL ? reachedLevel : reachedLevel + 1}
+          </p>
           <div className="ProgressBar">
             <Line
               percent={progressPercentage}
