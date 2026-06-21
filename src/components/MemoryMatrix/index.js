@@ -29,13 +29,13 @@ const emojiImages = [
 ]
 
 const rulesText = [
-  'In each level of the Game, Users should be able to see the Grid with N*N cells',
-  'The highlighted cells will remain N seconds',
+  'In each level of the Game, Users should be able to see the Grid with (N X N) size starting from 3 and the grid will highlight N cells in Blue, the N highlighted cells will be picked randomly.',
+  'The highlighted cells will remain N seconds for the user to memorize the cells. At this point, the user should not be able to perform any action.',
   'After N seconds, the grid will clear the N highlighted cells.',
   'At N seconds, the user can click on any cell. Clicking on a cell that was highlighted before it will turn blue. Clicking on the other cells that were not highlighted before then will turn to red.',
-  'The user should be promoted to the next level if all the correct cells are clicked',
-  'The user should be taken to the results page after clicking on the wrong cell',
-  'In each level, Grid size will be (N+2) * (N+2)',
+  'The user should be promoted to the next level if they guess all N cells correctly in one attempt.',
+  'The user should be taken to the results page if the user clicks on the wrong cell.',
+  'If the user completed all the levels, then the user should be taken to the results page.',
 ]
 
 const MAX_LEVEL = 15
@@ -123,15 +123,9 @@ class MemoryMatrix extends React.Component {
   }
 
   handleCellClick = index => {
-    const {
-      highlightedCells,
-      clickedCells,
-      level,
-      maxLevel,
-      isDisabled,
-    } = this.state
+    const {highlightedCells, clickedCells, level, maxLevel} = this.state
 
-    if (isDisabled || clickedCells.includes(index)) return
+    if (clickedCells.includes(index)) return
 
     if (!highlightedCells.includes(index)) {
       if (this.levelTimeout) clearTimeout(this.levelTimeout)
@@ -273,10 +267,11 @@ class MemoryMatrix extends React.Component {
             data-testid={isHighlightedCell ? 'highlighted' : 'notHighlighted'}
             onClick={() => this.handleCellClick(i)}
             className="MMBoxButton"
-            disabled={isDisabled}
+            aria-disabled={isDisabled}
             style={{
               width: '100%',
               height: '100%',
+              pointerEvents: isShowingPattern ? 'none' : 'auto',
             }}
             aria-label={`cell ${i}`}
           />
