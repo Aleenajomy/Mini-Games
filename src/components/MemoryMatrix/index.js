@@ -33,7 +33,7 @@ const rulesText = [
   'The highlighted cells will remain N seconds',
   'After N seconds, the grid will clear the N highlighted cells.',
   'At N seconds, the user can click on any cell. Clicking on a cell that was highlighted before it will turn blue. Clicking on the other cells that were not highlighted before then will turn to red.',
-  'If the user clicks on the correct cells, then the user level will be incremented',
+  'The user should be promoted to the next level if all the correct cells are clicked',
   'If the user clicks on the wrong cells, the game will be over',
   'In each level, Grid size will be (N+2) * (N+2)',
 ]
@@ -51,6 +51,7 @@ class MemoryMatrix extends React.Component {
     isModalOpen: false,
     isDisabled: true,
     reachedLevel: 0,
+    hasWon: false,
     maxLevel: localStorage.getItem('memoryMaxLevel')
       ? parseInt(localStorage.getItem('memoryMaxLevel'), 10)
       : 0,
@@ -73,6 +74,7 @@ class MemoryMatrix extends React.Component {
         isShowingPattern: true,
         isDisabled: true,
         reachedLevel: 0,
+        hasWon: false,
       },
       this.startLevel,
     )
@@ -106,15 +108,15 @@ class MemoryMatrix extends React.Component {
       this.levelTimeout = setTimeout(() => {
         this.setState(prevState => {
           const {level: currentLevel, maxLevel} = prevState
-          const completedLevels = currentLevel - 1
           let newMax = maxLevel
-          if (completedLevels > newMax) {
-            newMax = completedLevels
+          if (currentLevel > newMax) {
+            newMax = currentLevel
             localStorage.setItem('memoryMaxLevel', newMax)
           }
           return {
             view: 'result',
-            reachedLevel: completedLevels,
+            reachedLevel: currentLevel,
+            hasWon: false,
             maxLevel: newMax,
           }
         })
@@ -128,21 +130,22 @@ class MemoryMatrix extends React.Component {
       clickedCells,
       level,
       maxLevel,
+      isDisabled,
     } = this.state
 
-    if (clickedCells.includes(index)) return
+    if (isDisabled || clickedCells.includes(index)) return
 
     if (!highlightedCells.includes(index)) {
       if (this.levelTimeout) clearTimeout(this.levelTimeout)
-      const completedLevels = level - 1
       let newMax = maxLevel
-      if (completedLevels > newMax) {
-        newMax = completedLevels
+      if (level > newMax) {
+        newMax = level
         localStorage.setItem('memoryMaxLevel', newMax)
       }
       this.setState({
         view: 'result',
-        reachedLevel: completedLevels,
+        reachedLevel: level,
+        hasWon: false,
         maxLevel: newMax,
       })
       return
@@ -161,6 +164,7 @@ class MemoryMatrix extends React.Component {
         this.setState({
           view: 'result',
           reachedLevel: MAX_LEVEL,
+          hasWon: true,
           maxLevel: newMax,
         })
       } else {
@@ -175,7 +179,16 @@ class MemoryMatrix extends React.Component {
 
   closeModal = () => this.setState({isModalOpen: false})
 
-  getEmojiIndex = level => Math.min(level, 7)
+  getEmojiIndex = level => {
+    if (level === 0) return 0
+    if (level <= 2) return 1
+    if (level <= 4) return 2
+    if (level <= 6) return 3
+    if (level <= 8) return 4
+    if (level <= 10) return 5
+    if (level <= 12) return 6
+    return 7
+  }
 
   renderRulesView = () => (
     <div className="MMRulesMaincontainer">
@@ -263,10 +276,10 @@ class MemoryMatrix extends React.Component {
             data-testid={isHighlightedCell ? 'highlighted' : 'notHighlighted'}
             onClick={() => this.handleCellClick(i)}
             className="MMBoxButton"
+            disabled={isDisabled}
             style={{
               width: '100%',
               height: '100%',
-              pointerEvents: isShowingPattern ? 'none' : 'auto',
             }}
             aria-label={`cell ${i}`}
           />
@@ -343,9 +356,10 @@ class MemoryMatrix extends React.Component {
   }
 
   renderResultView = () => {
-    const {reachedLevel} = this.state
-    const emojiIndex = this.getEmojiIndex(reachedLevel)
-    const progressPercentage = Math.round((reachedLevel / MAX_LEVEL) * 100)
+    const {reachedLevel, hasWon} = this.state
+    const completedLevels = hasWon ? reachedLevel : reachedLevel - 1
+    const emojiIndex = this.getEmojiIndex(completedLevels)
+    const progressPercentage = Math.round((completedLevels / MAX_LEVEL) * 100)
 
     return (
       <div className="MMGameResultContainer">

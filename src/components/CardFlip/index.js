@@ -179,12 +179,17 @@ class CardFlipMemoryGame extends React.Component {
           alt="card flip memory game"
           className="CardFlipRulesImage"
         />
-        <h1 className="white" style={{
-          fontFamily: 'Bree Serif',
-          fontSize: '28px',
-          marginTop: '16px',
-          textAlign: 'center',
-        }}>Card-Flip Memory Game</h1>
+        <h1
+          className="white"
+          style={{
+            fontFamily: 'Bree Serif',
+            fontSize: '28px',
+            marginTop: '16px',
+            textAlign: 'center',
+          }}
+        >
+          Card-Flip Memory Game
+        </h1>
       </div>
       <h1 className="RPSRulesName white">Rules</h1>
       <ul className="RpsUnorderedList">
@@ -237,7 +242,9 @@ class CardFlipMemoryGame extends React.Component {
         </div>
 
         <h1 className="CardFlipGameHeading">Card-Flip Memory Game</h1>
-        <p className="CardFlipTimer" data-testid="timer">{this.formatTime(timer)}</p>
+        <p className="CardFlipTimer" data-testid="timer">
+          {this.formatTime(timer)}
+        </p>
 
         <div className="CardFlipScoreContainer">
           <p className="CardFlipCount">Card flip count - {flipCount}</p>

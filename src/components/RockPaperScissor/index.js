@@ -39,8 +39,8 @@ const rulesText = [
   'When the user choice is scissors and his opponent choice is paper then the result will be YOU WON',
   'When the user choice is rock and his opponent choice is scissors then the result will be YOU WON',
   'When the user choice is paper and his opponent choice is scissors then the result will be YOU LOSE',
-  'When the user choice is rock and his opponent choice is paper then the result will be YOU LOSE',
   'When the user choice is scissors and his opponent choice is scissors then the result will be IT IS DRAW',
+  'When the user choice is rock and his opponent choice is paper then the result will be YOU LOSE',
   'When the result is YOU WON, then the count of the score should be incremented by 1',
   'When the result is IT IS DRAW, then the count of the score should be the same',
   'When the result is YOU LOSE, then the count of the score should be decremented by 1',
@@ -247,7 +247,8 @@ class RockPaperScissor extends Component {
     const rockChoice = list.find(c => c.id.toUpperCase() === 'ROCK')
     const paperChoice = list.find(c => c.id.toUpperCase() === 'PAPER')
     const scissorChoice = list.find(
-      c => c.id.toUpperCase() === 'SCISSORS' || c.id.toUpperCase() === 'SCISSOR',
+      c =>
+        c.id.toUpperCase() === 'SCISSORS' || c.id.toUpperCase() === 'SCISSOR',
     )
 
     return (
