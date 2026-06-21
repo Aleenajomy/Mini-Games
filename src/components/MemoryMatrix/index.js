@@ -32,7 +32,7 @@ const rulesText = [
   'In each level of the Game, Users should be able to see the Grid with N*N cells',
   'The highlighted cells will remain N seconds',
   'After N seconds, the grid will clear the N highlighted cells.',
-  'The user has to click on the highlighted cells in the grid',
+  'At N seconds, the user can click on any cell. Clicking on a cell that was highlighted before it will turn blue. Clicking on the other cells that were not highlighted before then will turn to red.',
   'If the user clicks on the correct cells, then the user level will be incremented',
   'If the user clicks on the wrong cells, the game will be over',
   'In each level, Grid size will be (N+2) * (N+2)',
@@ -127,11 +127,10 @@ class MemoryMatrix extends React.Component {
       highlightedCells,
       clickedCells,
       level,
-      isDisabled,
       maxLevel,
     } = this.state
 
-    if (isDisabled || clickedCells.includes(index)) return
+    if (clickedCells.includes(index)) return
 
     if (!highlightedCells.includes(index)) {
       if (this.levelTimeout) clearTimeout(this.levelTimeout)
@@ -264,8 +263,11 @@ class MemoryMatrix extends React.Component {
             data-testid={isHighlightedCell ? 'highlighted' : 'notHighlighted'}
             onClick={() => this.handleCellClick(i)}
             className="MMBoxButton"
-            disabled={isDisabled}
-            style={{width: '100%', height: '100%'}}
+            style={{
+              width: '100%',
+              height: '100%',
+              pointerEvents: isShowingPattern ? 'none' : 'auto',
+            }}
             aria-label={`cell ${i}`}
           />
         </li>,
