@@ -31,7 +31,6 @@ const choices = [
 ]
 
 const rulesText = [
-  'The game result should be based on user and user opponent choices',
   'When the user choice is rock and his opponent choice is rock then the result will be IT IS DRAW',
   'When the user choice is paper and his opponent choice is rock then the result will be YOU WON',
   'When the user choice is a scissor and his opponent choice is rock then the result will be YOU LOSE',
