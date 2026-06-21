@@ -13,10 +13,10 @@ if (document.getElementById('root')) {
 
 const rulesText = [
   'User should be able to see the list of Emojis',
-  'When the user clicks any one of the Emoji for the first time, then the count of the score should be incremented by 1 and the list of emoji cards should be shuffled.',
-  'This process should be repeated every time the user clicks on an emoji card that has not been clicked yet.',
-  'When the user clicks on all the emojis exactly once, then the user will win the game',
-  'When the user clicks on the same emoji that was clicked earlier, then the user will lose the game.',
+  'When the user clicks any one of the Emoji for the first time, then the count of the score should be incremented by 1 and the List of emoji cards should be shuffled.',
+  'This process should be repeated every time the user clicks on an emoji card',
+  'When the user clicks on all Emoji cards without clicking any of it twice, then the user will win the game',
+  'When the user clicks on the same Emoji for the second time, then the user will lose the game.',
   'Once the game is over, the user will be redirected to the results page.',
 ]
 
