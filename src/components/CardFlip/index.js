@@ -12,8 +12,8 @@ if (document.getElementById('root')) {
 
 const rulesText = [
   'When the game is started, the users should be able to see the list of Cards that are shuffled and turned face down.',
-  'Users should be able to compare only two cards at a time.',
   'When a user starts the game, the user should be able to see the Timer running.',
+  'Users should be able to compare only two cards at a time.',
   'When the user is not able to find all the cards before the timer ends then the game should end and redirect to the Time Up Page.',
   'The Timer starts from 2 Minutes.',
   'If the two cards have the same image, they remain face up. If not, they should be flipped face down again after a short 2 seconds.',
