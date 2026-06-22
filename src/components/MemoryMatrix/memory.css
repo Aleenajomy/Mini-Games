@@ -388,6 +388,9 @@
 
 .MMGameResultUnorderedList {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
   padding: 0;
   margin: 0 0 20px 0;
 }
@@ -400,6 +403,10 @@
   width: 80px;
   height: 80px;
   object-fit: contain;
+}
+
+.activeMMEmoji {
+  transform: scale(1.08);
 }
 
 .MMResultCongratsHeading {

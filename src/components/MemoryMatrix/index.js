@@ -393,13 +393,17 @@ class MemoryMatrix extends React.Component {
           }}
         >
           <ul className="MMGameResultUnorderedList">
-            <li className="MMResultEmojisListItem">
-              <img
-                src={emojiImages[emojiIndex]}
-                alt={emojisArray[emojiIndex]}
-                className="MMemojis"
-              />
-            </li>
+            {emojiImages.map((emojiImage, index) => (
+              <li className="MMResultEmojisListItem" key={emojisArray[index]}>
+                <img
+                  src={emojiImage}
+                  alt={emojisArray[index]}
+                  className={
+                    index === emojiIndex ? 'MMemojis activeMMEmoji' : 'MMemojis'
+                  }
+                />
+              </li>
+            ))}
           </ul>
           <h1 className="MMResultCongratsHeading">Congratulations</h1>
           <h1 className="MMResultLevelHeading">{reachedLevelText}</h1>
