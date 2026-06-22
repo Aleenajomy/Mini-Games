@@ -409,6 +409,12 @@ class MemoryMatrix extends React.Component {
           <h1 className="MMResultLevelHeading">{reachedLevelText}</h1>
           <p className="MMResultPara">{levelText}</p>
           <div className="ProgressBar">
+            <div className="MMResultLevelMarkers">
+              <p>Level 1</p>
+              <p>Level 5</p>
+              <p>Level 10</p>
+              <p>Level 15</p>
+            </div>
             <Line
               percent={progressPercentage}
               strokeWidth={1}

@@ -432,6 +432,19 @@
   margin-bottom: 30px;
 }
 
+.MMResultLevelMarkers {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.MMResultLevelMarkers p {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 14px;
+  margin: 0 0 8px 0;
+}
+
 .ProgressBarSmallDevices {
   display: none;
 }
